@@ -1,0 +1,64 @@
+# Como obter o tamanho de um componente em React.JS 
+#### Usando Typescript, useRef, Function Component
+
+Saber o tamanho de um componente pode ser útil de diversas formas, como por exemplo saber o tamanho de dois componentes para fazer um salto no scroll de um component pai.
+
+A seguir está um exeplo de como você pode obeter o height e width de um componente: 
+
+```javascript
+// App.tsx
+import React, { useRef, useState } from 'react';
+import Component from './Component';
+
+const App = () => {
+	const [componentSize, setComponentSize] = useState({width:  0, height:  0})
+	const refComponent = useRef<HTMLDivElement>(null);
+	
+	function getComponentSize(){
+		const height = refComponent?.current?.clientHeight || 0;
+		const width = refComponent?.current?.clientWidth || 0;
+
+		setComponentSize({
+			width,
+			height
+		});
+	}
+
+	return (
+		<>
+		 <header>
+				<h1>
+					Component App
+					<button onClick={() =>  getComponentSize()}>Get Component Size</button>
+				</h1>
+			</header>
+			<main style={{padding:"0 5rem"}}>
+				<Component refComponent={refComponent} />
+				<p>Width: {componentSize.width} e height: {componentSize.height}</p>
+			</main>
+		</>
+	);
+}
+
+export  default  App;
+```
+
+```javascript
+//	Componenet.tsx
+import React from  'react';
+ 
+const Component = (props: { refComponent:  React.LegacyRef<HTMLDivElement> }) => (
+	<div 
+		ref={props.refComponent}
+		style={{ height: "400px", width: "100%", background:  "blue" }} 
+	/>
+);
+
+export default Component;
+```
+
+O resultado será:
+ 
+![Como obter o tamanho de um componente em React.JS](https://user-images.githubusercontent.com/50744385/115805494-7ad62b00-a3bb-11eb-9718-c226e2e12099.png)
+
+Neste exemplo eu defini o tamanho com style, mas também funcionará em um component dinâmico. Caso você tenha fotos ou outro conteudo que demora a carregar, deverá fazer uma verificação antes de obter o tamanho.
