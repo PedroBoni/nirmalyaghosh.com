@@ -97,7 +97,7 @@ const Page: NextPage<IProps> = ({ content, frontMatter, readingTime }) => {
           ],
           site_name: siteConfig.details.title,
           type: "article",
-          locale: "en_IE",
+          locale: "pt_BR",
         }}
       />
       <Box>
