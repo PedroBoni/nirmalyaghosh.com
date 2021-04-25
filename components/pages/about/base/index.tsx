@@ -15,12 +15,12 @@ const Page: FC = () => {
   const headingNode = () => {
     return (
       <HStack spacing={4} alignItems="center">
-        <Box bg="white" color="gray.900" rounded="full" p={1} w={120} h={120}>
+        <Box bg="white" color="gray.900" rounded="full" p={1} w={100} h={100}>
           <Image
             src="/images/common/avatar.png"
             alt="Pedro Bonifacio"
-            height={120}
-            width={120}
+            height={100}
+            width={100}
             quality={100}
             priority
           />
