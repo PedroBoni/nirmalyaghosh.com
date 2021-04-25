@@ -101,7 +101,7 @@ const PortfolioApp = ({ Component, pageProps }: AppProps) => {
           ],
           site_name: siteConfig.details.title,
           type: "website",
-          locale: "en_IE",
+          locale: "pt_BR",
         }}
       />
       <Navbar />
