@@ -25,6 +25,8 @@ const SocialShare = dynamic(
 );
 
 const Page: NextPage<IProps> = ({ content, frontMatter, readingTime }) => {
+  console.log(siteConfig.details.url + "/" +frontMatter.coverImage)
+
   const metaNode = (date: string) => {
     return (
       <HStack spacing={2} isInline alignItems="center">
@@ -47,7 +49,6 @@ const Page: NextPage<IProps> = ({ content, frontMatter, readingTime }) => {
       </Heading>
     );
   };
-
   const coverImageNode = () => {
     if (!frontMatter.coverImage) {
       return (
